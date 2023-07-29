@@ -1,4 +1,4 @@
-import css from "./ContactForm.module.css";
+import { Button, TextField } from "@mui/material";
 import PropTypes from "prop-types";
 export const ContactForm = ({
   name,
@@ -8,40 +8,31 @@ export const ContactForm = ({
   setNumber,
 }) => {
   return (
-    <>
-      <form
-        onSubmit={(e) => addContact(e, { name: name, number: number })}
-        className={css.formWrapper}
-      >
-        <label className={css.label}>
-          Name
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-          />
-        </label>
-
-        <label className={css.label}>
-          Number
-          <input
-            type="tel"
-            name="number"
-            value={number}
-            onChange={(e) => setNumber(e.target.value)}
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-          />
-        </label>
-
-        <button type="submit" className={css.button}>
-          Add contact
-        </button>
-      </form>
-    </>
+    <form onSubmit={(e) => addContact(e, { name: name, number: number })}>
+      <TextField
+        sx={{ m: "10px" }}
+        label="Name"
+        type="text"
+        name="name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        required
+      ></TextField>
+      <TextField
+        sx={{ m: "10px" }}
+        label="Number"
+        type="tel"
+        name="number"
+        value={number}
+        onChange={(e) => setNumber(e.target.value)}
+        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+        required
+      ></TextField>
+      <Button type="submit" variant="text" size="medium" sx={{ p: "25px" }}>
+        Add contact
+      </Button>
+    </form>
   );
 };
 

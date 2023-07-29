@@ -10,6 +10,7 @@ import {
 import { setFilter } from "../../redux/Filter/filterSlice";
 import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
+import { Box, Typography } from "@mui/material";
 
 export const Phonebook = () => {
   const [name, setName] = useState("");
@@ -28,6 +29,15 @@ export const Phonebook = () => {
     setNumber("");
     setFilter("");
     console.log(newContact);
+    if (
+      contacts.find(
+        (c) => c.name.toLowerCase() === newContact.name.toLowerCase()
+      )
+    ) {
+      alert(`${newContact.name} is already in contact`);
+    }
+
+    return;
   };
 
   const handleDeleteContact = (e, contact) => {
@@ -35,9 +45,16 @@ export const Phonebook = () => {
     dispatch(deleteContact(contact.id));
   };
   return (
-    <div>
-      {" "}
-      <p>Phonebook</p>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "3rem",
+        mt: "2rem",
+      }}
+    >
+      <Typography variant="h4">Phonebook</Typography>
       <ContactForm
         name={name}
         number={number}
@@ -49,6 +66,8 @@ export const Phonebook = () => {
         contacts={contacts || []}
         deleteContact={handleDeleteContact}
       />
-    </div>
+    </Box>
   );
 };
+
+

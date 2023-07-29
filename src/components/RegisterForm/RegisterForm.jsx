@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/Auth/operations";
-import css from "./RegisterForm.module.css";
+import { Button, Container, TextField } from "@mui/material";
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -19,20 +19,63 @@ export const RegisterForm = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <label className={css.label}>
-        Username
-        <input type="text" name="name" />
-      </label>
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Register</button>
-    </form>
+    <Container
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <form onSubmit={handleSubmit}>
+        <TextField
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            m: "30px",
+            gap: "10px",
+            width: "270px",
+          }}
+          type="text"
+          name="name"
+          id="outlined-basic"
+          label="Username"
+          variant="outlined"
+          autoComplete="on"
+        ></TextField>
+
+        <TextField
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            m: "30px",
+            gap: "10px",
+            width: "270px",
+          }}
+          type="email"
+          name="email"
+          id="outlined-basic"
+          label="Email"
+          variant="outlined"
+          autoComplete="on"
+        ></TextField>
+        <TextField
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            m: "30px",
+            gap: "10px",
+            width: "270px",
+          }}
+          type="password"
+          name="password"
+          id="outlined-basic"
+          label="Password"
+          variant="outlined"
+          autoComplete="on"
+        ></TextField>
+        <Button type="submit" variant="text" size="medium" sx={{ ml: "120px" }}>
+          Register
+        </Button>
+      </form>
+    </Container>
   );
 };

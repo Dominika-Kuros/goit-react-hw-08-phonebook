@@ -3,7 +3,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectFilter } from "../../../redux/Contacts/selectors";
 import { setFilter } from "../../../redux/Filter/filterSlice";
 import PropTypes from "prop-types";
-// import css from "./ContactList.module.css";
+import {
+  Button,
+  Container,
+  FormControl,
+  Input,
+  List,
+  ListItem,
+  Typography,
+} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export const ContactList = ({ contacts, deleteContact }) => {
   const filter = useSelector(selectFilter);
@@ -18,35 +27,48 @@ export const ContactList = ({ contacts, deleteContact }) => {
 
   const Contact = ({ name, number, id }) => {
     return (
-      <li key={id}>
-        <span>{name + " : " + number}</span>
-        {
-          <button
-            type="button"
-            name="delete"
-            onClick={(e) => deleteContact(e, { id })}
-          >
-            Delete
-          </button>
-        }
-      </li>
+      <Typography variant="h6">
+        <ListItem key={id}>
+          <span>{name + " : " + number}</span>
+          {
+            <Button
+              type="submit"
+              variant="text"
+              color="primary"
+              size="medium"
+              onClick={(e) => deleteContact(e, { id })}
+            >
+              {" "}
+              <DeleteIcon />
+            </Button>
+          }
+        </ListItem>
+      </Typography>
     );
   };
 
   return (
-    <div>
-      <label>Find contacts</label>
-      <input
-        type="text"
-        id="filter"
-        name="filter"
-        onChange={(e) => dispatch(setFilter(e.target.value.trim()))}
-        value={filter}
-      ></input>
+    <Container
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        textAlign: "center",
+      }}
+    >
+      <FormControl>
+        <Input
+          placeholder="Find contacts"
+          type="text"
+          id="filter"
+          name="filter"
+          onChange={(e) => dispatch(setFilter(e.target.value.trim()))}
+          value={filter}
+        ></Input>
+      </FormControl>
       {contacts.length === 0 ? (
         <span>No contacts found</span>
       ) : (
-        <ul>
+        <List>
           {filteredContacts(filter, contacts).map((item) => {
             return (
               <Contact
@@ -57,9 +79,9 @@ export const ContactList = ({ contacts, deleteContact }) => {
               />
             );
           })}
-        </ul>
+        </List>
       )}
-    </div>
+    </Container>
   );
 };
 ContactList.propTypes = {

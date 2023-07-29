@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/Auth/operations";
-import css from "./LoginForm.module.css";
+import { Button, Container, TextField } from "@mui/material";
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -18,16 +18,49 @@ export const LoginForm = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <Container
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <form onSubmit={handleSubmit}>
+        <TextField
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            m: "30px",
+            gap: "10px",
+            width: "270px",
+          }}
+          type="email"
+          name="email"
+          id="outlined-basic"
+          label="Email"
+          variant="outlined"
+          autoComplete="on"
+        ></TextField>
+
+        <TextField
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            m: "30px",
+            gap: "10px",
+            width: "270px",
+          }}
+          type="password"
+          name="password"
+          id="outlined-basic"
+          label="Password"
+          variant="outlined"
+          autoComplete="on"
+        ></TextField>
+
+        <Button variant="text" size="medium" type="submit" sx={{ ml: "120px" }}>
+          Log In
+        </Button>
+      </form>
+    </Container>
   );
 };
