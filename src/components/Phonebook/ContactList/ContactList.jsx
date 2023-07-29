@@ -4,6 +4,7 @@ import { selectFilter } from "../../../redux/Contacts/selectors";
 import { setFilter } from "../../../redux/Filter/filterSlice";
 import PropTypes from "prop-types";
 import {
+  Box,
   Button,
   Container,
   FormControl,
@@ -66,7 +67,7 @@ export const ContactList = ({ contacts, deleteContact }) => {
         ></Input>
       </FormControl>
       {contacts.length === 0 ? (
-        <span>No contacts found</span>
+        <Box sx={{ mt: "20px" }}>No contacts found</Box>
       ) : (
         <List>
           {filteredContacts(filter, contacts).map((item) => {
