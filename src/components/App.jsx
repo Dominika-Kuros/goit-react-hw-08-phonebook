@@ -12,12 +12,12 @@ import Container from "@mui/material/Container";
 const Home = lazy(() => import("../pages/Home/Home"));
 const Register = lazy(() => import("../pages/Register/Register"));
 const Login = lazy(() => import("../pages/Login/Login"));
-const ContactPage = lazy(() => import("../pages/ContactPage/ContactPage"));
+const Contacts = lazy(() => import("../pages/ContactPage/Contacts"));
 
 export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
-  // const { error } = useAuth();
+
   useEffect(() => {
     document.title = "Phonebook";
   }, []);
@@ -53,7 +53,7 @@ export const App = () => {
             <Route
               path="/contacts"
               element={
-                <PrivateRoute redirectTo="/login" component={<ContactPage />} />
+                <PrivateRoute redirectTo="/login" component={<Contacts />} />
               }
             />
           </Route>

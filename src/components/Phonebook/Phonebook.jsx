@@ -35,9 +35,10 @@ export const Phonebook = () => {
       )
     ) {
       alert(`${newContact.name} is already in contact`);
+      return;
     }
 
-    return;
+    
   };
 
   const handleDeleteContact = (e, contact) => {

@@ -11,7 +11,7 @@ export const MenuAppBar = () => {
       {isLoggedIn ? (
         <AppBar position="relative" sx={{ width: "1000px", height: "80px" }}>
           <Toolbar sx={{ display: "flex", justifyContent: "left", m: "10px" }}>
-            <UserMenu />{" "}
+            <UserMenu />
           </Toolbar>
         </AppBar>
       ) : (

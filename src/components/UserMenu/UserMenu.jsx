@@ -3,6 +3,7 @@ import { logOut } from "../../redux/Auth/operations";
 import { useAuth } from "../../hooks/useAuth";
 import Button from "@mui/material/Button";
 import { Box, Typography } from "@mui/material";
+import { Navigation } from "../Navigation/Navigation";
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ export const UserMenu = () => {
       }}
     >
       <Typography variant="h5">Hello, {user.name}</Typography>
-
+      <Navigation />
       <Button
         type="button"
         onClick={() => dispatch(logOut())}

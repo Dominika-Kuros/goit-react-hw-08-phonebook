@@ -27,12 +27,12 @@ const authSlice = createSlice({
       state.error = null;
     },
     [register.rejected](state) {
-      // added
+     
       state.error = "Unable to register with this data.";
       state.isLoading = false;
     },
     [register.pending](state) {
-      // added
+    
       state.isLoading = true;
       state.error = null;
     },
@@ -44,14 +44,14 @@ const authSlice = createSlice({
       state.isLoading = false;
     },
     [logIn.rejected](state) {
-      // added
+    
       state.isLoggedIn = false;
       state.isLoading = false;
       state.error =
         "Unable to log in. Please check email / password and try again.";
     },
     [logIn.pending](state) {
-      // added
+  
       state.isLoading = true;
       state.error = null;
     },
@@ -61,7 +61,7 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
     },
     [logOut.rejected](state) {
-      // added
+     
       state.isLoggedIn = false;
       state.isLoading = false;
     },
