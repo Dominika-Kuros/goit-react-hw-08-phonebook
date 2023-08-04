@@ -19,7 +19,7 @@ export const UserMenu = () => {
         flex: "1",
       }}
     >
-      <Typography sx={{ mt: "2px", mr: "530px" }} variant="h5">
+      <Typography sx={{ mt: "2px", mr: "60vh" }} variant="h5">
         Hello, {user.name}
       </Typography>
       <Navigation />
