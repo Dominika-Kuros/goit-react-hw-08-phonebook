@@ -14,11 +14,14 @@ export const UserMenu = () => {
       component="div"
       sx={{
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "right",
         gap: "13px",
+        flex: "1",
       }}
     >
-      <Typography variant="h5">Hello, {user.name}</Typography>
+      <Typography sx={{ mt: "2px", mr: "530px" }} variant="h5">
+        Hello, {user.name}
+      </Typography>
       <Navigation />
       <Button
         type="button"

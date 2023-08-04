@@ -24,7 +24,6 @@ export const ContactForm = ({
         label="Number"
         type="tel"
         name="number"
-        value={number}
         onChange={(e) => setNumber(e.target.value)}
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required

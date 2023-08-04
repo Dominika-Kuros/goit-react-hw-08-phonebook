@@ -1,16 +1,29 @@
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
-import Typography from "@mui/material/Typography";
+import { Box, Button, Link } from "@mui/material";
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <nav>
-      <Typography variant="h5" sx={{ display: { xs: "none", sm: "block" } }}>
-        {!isLoggedIn && <NavLink to="/">Home</NavLink>}
-        {isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}
-      </Typography>
-    </nav>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "left",
+      }}
+    >
+      {!isLoggedIn && <NavLink to="/">Home</NavLink>}
+
+      {isLoggedIn && (
+        <Button
+          component={Link}
+          variant="outlined"
+          color="inherit"
+          href="/contacts"
+        >
+          Contacts
+        </Button>
+      )}
+    </Box>
   );
 };

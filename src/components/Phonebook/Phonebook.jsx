@@ -10,7 +10,7 @@ import {
 import { setFilter } from "../../redux/Filter/filterSlice";
 import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
-import { Box, Typography } from "@mui/material";
+import { Alert, Box, Typography } from "@mui/material";
 
 export const Phonebook = () => {
   const [name, setName] = useState("");
@@ -34,11 +34,9 @@ export const Phonebook = () => {
         (c) => c.name.toLowerCase() === newContact.name.toLowerCase()
       )
     ) {
-      alert(`${newContact.name} is already in contact`);
+      <Alert>(`${newContact.name} is already in contact`)</Alert>;
       return;
     }
-
-    
   };
 
   const handleDeleteContact = (e, contact) => {
