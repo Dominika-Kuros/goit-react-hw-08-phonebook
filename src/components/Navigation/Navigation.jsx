@@ -19,7 +19,7 @@ export const Navigation = () => {
           component={Link}
           variant="outlined"
           color="inherit"
-          href="/contacts"
+          to="/contacts"
         >
           Contacts
         </Button>
