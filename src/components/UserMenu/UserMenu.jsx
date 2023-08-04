@@ -14,24 +14,33 @@ export const UserMenu = () => {
       component="div"
       sx={{
         display: "flex",
-        justifyContent: "right",
+        justifyContent: "space-between",
         gap: "13px",
         flex: "1",
       }}
     >
-      <Typography sx={{ mt: "2px", mr: "60vh" }} variant="h5">
+      <Typography sx={{ mt: "2px" }} variant="h5">
         Hello, {user.name}
       </Typography>
-      <Navigation />
-      <Button
-        type="button"
-        onClick={() => dispatch(logOut())}
-        variant="outlined"
-        color="inherit"
-        size="small"
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          gap: "1vh",
+          justifyContent: "space-between",
+        }}
       >
-        Logout
-      </Button>
+        <Navigation />
+        <Button
+          type="button"
+          onClick={() => dispatch(logOut())}
+          variant="outlined"
+          color="inherit"
+          size="small"
+        >
+          Logout
+        </Button>
+      </Box>
     </Box>
   );
 };

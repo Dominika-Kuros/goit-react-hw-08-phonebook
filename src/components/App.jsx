@@ -39,7 +39,7 @@ export const App = () => {
               path="/register"
               element={
                 <RestrictedRoute
-                  redirectTo="/register"
+                  redirectTo="/contacts"
                   component={<Register />}
                 />
               }
