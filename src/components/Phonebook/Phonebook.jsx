@@ -37,12 +37,15 @@ export const Phonebook = () => {
       <Alert>(`${newContact.name} is already in contact`)</Alert>;
       return;
     }
+    contacts.reset();
   };
 
   const handleDeleteContact = (e, contact) => {
     e.preventDefault();
     dispatch(deleteContact(contact.id));
+    contacts.reset();
   };
+ 
   return (
     <Box
       sx={{

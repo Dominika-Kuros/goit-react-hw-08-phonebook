@@ -7,6 +7,7 @@ export const ContactForm = ({
   setName,
   setNumber,
 }) => {
+  
   return (
     <form onSubmit={(e) => addContact(e, { name: name, number: number })}>
       <TextField
@@ -24,6 +25,7 @@ export const ContactForm = ({
         label="Number"
         type="tel"
         name="number"
+        value={number}
         onChange={(e) => setNumber(e.target.value)}
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
@@ -33,6 +35,7 @@ export const ContactForm = ({
       </Button>
     </form>
   );
+  
 };
 
 ContactForm.propTypes = {
