@@ -4,4 +4,5 @@ Used technologies:
 - React router,
 - Redux,
 - MUI,
+- Axios,
 - Vite
