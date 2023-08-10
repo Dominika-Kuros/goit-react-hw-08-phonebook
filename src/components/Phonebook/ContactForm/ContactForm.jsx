@@ -1,5 +1,6 @@
-import { Button, TextField } from "@mui/material";
 import PropTypes from "prop-types";
+import { Button, TextField } from "@mui/material";
+import { styledButton, styledTextField } from "./ContactFormStyle";
 export const ContactForm = ({
   name,
   number,
@@ -7,11 +8,10 @@ export const ContactForm = ({
   setName,
   setNumber,
 }) => {
-  
   return (
     <form onSubmit={(e) => addContact(e, { name: name, number: number })}>
       <TextField
-        sx={{ m: "10px" }}
+        style={styledTextField}
         label="Name"
         type="text"
         name="name"
@@ -21,7 +21,7 @@ export const ContactForm = ({
         required
       ></TextField>
       <TextField
-        sx={{ m: "10px" }}
+        style={styledTextField}
         label="Number"
         type="tel"
         name="number"
@@ -30,12 +30,11 @@ export const ContactForm = ({
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       ></TextField>
-      <Button type="submit" variant="text" size="medium" sx={{ p: "25px" }}>
+      <Button style={styledButton} type="submit">
         Add contact
       </Button>
     </form>
   );
-  
 };
 
 ContactForm.propTypes = {
