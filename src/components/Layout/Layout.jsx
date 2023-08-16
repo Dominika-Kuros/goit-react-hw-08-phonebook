@@ -1,14 +1,16 @@
 import { Outlet } from "react-router-dom";
 import { MenuAppBar } from "../MenuAppBar/MenuAppBar";
 import { Suspense } from "react";
+import { Container } from "@mui/material";
+import { styledContainer } from "./LayoutStyled";
 
 export const Layout = () => {
   return (
-    <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 16px" }}>
+    <Container sx={styledContainer}>
       <MenuAppBar />
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
-    </div>
+    </Container>
   );
 };
