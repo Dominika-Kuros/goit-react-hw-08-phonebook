@@ -1,26 +1,17 @@
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { Box, Button, Link } from "@mui/material";
+import { navigationBox } from "./NavigationStyled";
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "left",
-      }}
-    >
+    <Box sx={navigationBox}>
       {!isLoggedIn && <NavLink to="/">Home</NavLink>}
 
       {isLoggedIn && (
-        <Button
-          component={Link}
-          variant="outlined"
-          color="inherit"
-          to="/contacts"
-        >
+        <Button component={Link} to="/contacts">
           Contacts
         </Button>
       )}

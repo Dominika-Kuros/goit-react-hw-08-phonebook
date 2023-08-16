@@ -4,6 +4,7 @@ import { useAuth } from "../../hooks/useAuth";
 import Button from "@mui/material/Button";
 import { Box, Typography } from "@mui/material";
 import { Navigation } from "../Navigation/Navigation";
+import { styledUseMenuBox, styledUserMenuButton } from "./UserMenuStyled";
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -22,21 +23,12 @@ export const UserMenu = () => {
       <Typography sx={{ mt: "2px" }} variant="h5">
         Hello, {user.name}
       </Typography>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          gap: "1vh",
-          justifyContent: "space-between",
-        }}
-      >
+      <Box sx={styledUseMenuBox}>
         <Navigation />
         <Button
           type="button"
           onClick={() => dispatch(logOut())}
-          variant="outlined"
-          color="inherit"
-          size="small"
+          sx={styledUserMenuButton}
         >
           Logout
         </Button>

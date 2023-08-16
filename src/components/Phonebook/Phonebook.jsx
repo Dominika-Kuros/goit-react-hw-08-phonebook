@@ -11,6 +11,7 @@ import { setFilter } from "../../redux/Filter/filterSlice";
 import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
 import { Alert, Box, Typography } from "@mui/material";
+import { styledBox } from "./PhonebookStyled";
 
 export const Phonebook = () => {
   const [name, setName] = useState("");
@@ -45,17 +46,9 @@ export const Phonebook = () => {
     dispatch(deleteContact(contact.id));
     contacts.reset();
   };
- 
+
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "3rem",
-        mt: "2rem",
-      }}
-    >
+    <Box sx={styledBox}>
       <Typography variant="h4">Phonebook</Typography>
       <ContactForm
         name={name}

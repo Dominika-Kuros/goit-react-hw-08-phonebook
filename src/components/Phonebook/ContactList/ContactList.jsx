@@ -14,7 +14,7 @@ import {
   Typography,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import { listStyledButton, styledContainer } from "./ContactListStyle";
 export const ContactList = ({ contacts, deleteContact }) => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
@@ -33,10 +33,7 @@ export const ContactList = ({ contacts, deleteContact }) => {
           <span>{name + " : " + number}</span>
           {
             <Button
-              type="submit"
-              variant="text"
-              color="primary"
-              size="medium"
+              sx={listStyledButton}
               onClick={(e) => deleteContact(e, { id })}
             >
               {" "}
@@ -49,13 +46,7 @@ export const ContactList = ({ contacts, deleteContact }) => {
   };
 
   return (
-    <Container
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "center",
-      }}
-    >
+    <Container sx={styledContainer}>
       <FormControl>
         <Input
           placeholder="Find contacts"

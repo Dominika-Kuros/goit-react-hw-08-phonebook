@@ -11,7 +11,7 @@ export const ContactForm = ({
   return (
     <form onSubmit={(e) => addContact(e, { name: name, number: number })}>
       <TextField
-        style={styledTextField}
+        sx={styledTextField}
         label="Name"
         type="text"
         name="name"
@@ -21,7 +21,7 @@ export const ContactForm = ({
         required
       ></TextField>
       <TextField
-        style={styledTextField}
+        sx={styledTextField}
         label="Number"
         type="tel"
         name="number"
@@ -30,7 +30,7 @@ export const ContactForm = ({
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       ></TextField>
-      <Button style={styledButton} type="submit">
+      <Button sx={styledButton} type="submit">
         Add contact
       </Button>
     </form>

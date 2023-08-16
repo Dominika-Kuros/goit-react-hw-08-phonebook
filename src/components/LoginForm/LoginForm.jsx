@@ -1,6 +1,11 @@
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/Auth/operations";
 import { Button, Container, TextField } from "@mui/material";
+import {
+  styledLoginContainer,
+  styledLoginTextField,
+  styledLoginButton,
+} from "./LoginFormStyled";
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -18,21 +23,10 @@ export const LoginForm = () => {
   };
 
   return (
-    <Container
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
+    <Container sx={styledLoginContainer}>
       <form onSubmit={handleSubmit}>
         <TextField
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            m: "30px",
-            gap: "10px",
-            width: "270px",
-          }}
+          sx={styledLoginTextField}
           type="email"
           name="email"
           id="outlined-basic"
@@ -42,13 +36,7 @@ export const LoginForm = () => {
         ></TextField>
 
         <TextField
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            m: "30px",
-            gap: "10px",
-            width: "270px",
-          }}
+          sx={styledLoginTextField}
           type="password"
           name="password"
           id="outlined-basic"
@@ -57,7 +45,7 @@ export const LoginForm = () => {
           autoComplete="on"
         ></TextField>
 
-        <Button variant="text" size="medium" type="submit" sx={{ ml: "120px" }}>
+        <Button type="submit" sx={styledLoginButton}>
           Log In
         </Button>
       </form>

@@ -3,14 +3,15 @@ import { UserMenu } from "../UserMenu/UserMenu";
 import { AuthNav } from "../AuthNav/AuthNav";
 import { useAuth } from "../../hooks/useAuth";
 import { AppBar, Toolbar } from "@mui/material";
+import { styledToolbar, styledMenuAppBar } from "./MenuAppBarStyled";
 
 export const MenuAppBar = () => {
   const { isLoggedIn } = useAuth("");
   return (
     <div>
       {isLoggedIn ? (
-        <AppBar position="relative" sx={{ width: "1000px", height: "80px" }}>
-          <Toolbar sx={{ display: "flex", justifyContent: "left", m: "10px" }}>
+        <AppBar sx={styledMenuAppBar}>
+          <Toolbar sx={styledToolbar}>
             <UserMenu />
           </Toolbar>
         </AppBar>

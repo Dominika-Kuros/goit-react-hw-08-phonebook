@@ -1,6 +1,11 @@
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/Auth/operations";
 import { Button, Container, TextField } from "@mui/material";
+import {
+  styledRegisterButton,
+  styledRegisterContainer,
+  styledRegisterTextField,
+} from "./RegisterFormStyled";
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -19,60 +24,34 @@ export const RegisterForm = () => {
   };
 
   return (
-    <Container
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
+    <Container sx={styledRegisterContainer}>
       <form onSubmit={handleSubmit}>
         <TextField
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            m: "30px",
-            gap: "10px",
-            width: "270px",
-          }}
+          sx={styledRegisterTextField}
           type="text"
           name="name"
           id="outlined-basic"
           label="Username"
-          variant="outlined"
           autoComplete="on"
         ></TextField>
 
         <TextField
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            m: "30px",
-            gap: "10px",
-            width: "270px",
-          }}
+          sx={styledRegisterTextField}
           type="email"
           name="email"
           id="outlined-basic"
           label="Email"
-          variant="outlined"
           autoComplete="on"
         ></TextField>
         <TextField
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            m: "30px",
-            gap: "10px",
-            width: "270px",
-          }}
+          sx={styledRegisterTextField}
           type="password"
           name="password"
           id="outlined-basic"
           label="Password"
-          variant="outlined"
           autoComplete="on"
         ></TextField>
-        <Button type="submit" variant="text" size="medium" sx={{ ml: "120px" }}>
+        <Button type="submit" sx={styledRegisterButton}>
           Register
         </Button>
       </form>

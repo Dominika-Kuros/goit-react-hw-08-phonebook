@@ -1,24 +1,4 @@
-// import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-
-// export const AuthNav = () => {
-//   return (
-//     <Box
-//       component="div"
-//       sx={{
-//         display: "flex",
-//         justifyContent: "space-between",
-//         gap: "35rem",
-//       }}
-//     >
-//       <Typography variant="h5">
-//         <NavLink to="/register">Register</NavLink>
-
-//         <NavLink to="/login">Log In</NavLink>
-//       </Typography>
-//     </Box>
-//   );
-// };
 
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
@@ -31,7 +11,15 @@ import Menu from "@mui/material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-
+import {
+  styledAppBar,
+  styledToolBar,
+  styledAuthBox,
+  styledIcon,
+  styledLink,
+  styledAppBox,
+  styledAuthButton,
+} from "./AuthNavStyled";
 const pages = ["Register", "Login"];
 const settings = ["Profile", "Contacts", "Logout"];
 
@@ -52,43 +40,23 @@ export const AuthNav = () => {
   };
 
   return (
-    <AppBar position="relative" sx={{ width: "1000px", height: "80px" }}>
+    <AppBar sx={styledAppBar}>
       <Container maxWidth="xl">
-        <Toolbar sx={{ display: "flex", justifyContent: "left", m: "5px" }}>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+        <Toolbar sx={styledToolBar}>
+          <Box sx={styledAppBox}>
             <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
+              sx={styledIcon}
               onClick={handleOpenNavMenu}
-              color="inherit"
             ></IconButton>
             <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
+              sx={styledAuthButton}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                    <Link
-                      style={{ textDecoration: "none", color: "white" }}
-                      to={`${page}`}
-                    >
+                    <Link sx={styledLink} to={`${page}`}>
                       {page}
                     </Link>
                   </Typography>
@@ -97,12 +65,12 @@ export const AuthNav = () => {
             </Menu>
           </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={styledAuthBox}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={styledAuthButton}
               >
                 <Link
                   style={{ textDecoration: "none", color: "white" }}
@@ -116,18 +84,7 @@ export const AuthNav = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
+              sx={styledAuthButton}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
